@@ -1,0 +1,33 @@
+Starting the multi-node cluster
+Starting the cluster is performed in two steps.
+
+We begin with starting the HDFS daemons: the NameNode daemon is started on master, and DataNode daemons are started on all slaves (here: master and slave).
+Then we start the MapReduce daemons: the JobTracker is started on master, and TaskTracker daemons are started on all slaves (here: master and slave).
+
+MapReduce daemons
+
+Run the command bin/start-mapred.sh on the machine you want the JobTracker to run on. This will bring up the MapReduce cluster with the JobTracker running on the machine you ran the previous command on, and TaskTrackers on the machines listed in the conf/slaves file.
+In our case, we will run bin/start-mapred.sh on master:
+
+hduser@master:/usr/local/hadoop$ bin/start-mapred.sh
+starting jobtracker, logging to /usr/local/hadoop/bin/../logs/hadoop-hadoop-jobtracker-master.out
+slave: Ubuntu 10.04
+slave: starting tasktracker, logging to /usr/local/hadoop/bin/../logs/hadoop-hduser-tasktracker-slave.out
+master: starting tasktracker, logging to /usr/local/hadoop/bin/../logs/hadoop-hduser-tasktracker-master.out
+hduser@master:/usr/local/hadoop$
+
+Stopping the multi-node cluster
+
+Like starting the cluster, stopping it is done in two steps. The workflow however is the opposite of starting.
+1. We begin with stopping the MapReduce daemons: the JobTracker is stopped on master, and TaskTracker daemons are stopped on all slaves (here: master and slave).
+2. Then we stop the HDFS daemons: the NameNode daemon is stopped on master, and DataNode daemons are stopped on all slaves (here: master and slave).
+MapReduce daemons
+
+Run the command bin/stop-mapred.sh on the JobTracker machine. This will shut down the MapReduce cluster by stopping the JobTracker daemon running on the machine you ran the previous command on, and TaskTrackers on the machines listed in the conf/slaves file.
+In our case, we will run bin/stop-mapred.sh on master:
+hduser@master:/usr/local/hadoop$ bin/stop-mapred.sh
+stopping jobtracker
+slave: Ubuntu 10.04
+master: stopping tasktracker
+slave: stopping tasktracker
+hduser@master:/usr/local/hadoop$

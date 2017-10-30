@@ -1,4 +1,5 @@
 Configuring SSH(Secure Shell Protocol)
+
 user@ubuntu:~$ su - hduser
 hduser@ubuntu:~$ ssh-keygen -t rsa -P ""
 Generating public/private rsa key pair.
@@ -16,7 +17,9 @@ hduser@ubuntu:~$ cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
 
 
 Starting your single-node cluster
+
 Run the command:
+
 hduser@ubuntu:~$ /usr/local/hadoop/bin/start-all.sh
 hduser@ubuntu:/usr/local/hadoop$ bin/start-all.sh
 starting namenode, logging to /usr/local/hadoop/bin/../logs/hadoop-hduser-namenode-ubuntu.out

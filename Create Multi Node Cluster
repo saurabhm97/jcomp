@@ -1,0 +1,2 @@
+The hduser user on the master (aka hduser@master) must be able to connect a) to its own user account on the master – i.e. ssh master
+The final step is to test the SSH setup by connecting with user hduser from the master to the user account hduser on the slave. The step is also needed to save slave’s host key fingerprint to the hduser@master’s known_hosts file.

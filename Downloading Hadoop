@@ -1,0 +1,20 @@
+
+$ sudo apt-get install python-software-properties
+$ sudo add-apt-repository ppa:ferramroberto/java
+
+# Update the source list
+$ sudo apt-get update
+
+# Install Sun Java 6 JDK
+$ sudo apt-get install sun-java6-jdk
+
+# Select Sun's Java as the default on your machine.
+# See 'sudo update-alternatives --config java' for more information.
+#
+$ sudo update-java-alternatives -s java-6-sun
+$ sudo addgroup hadoop
+$ sudo adduser --ingroup hadoop hduser
+$ cd /usr/local
+$ sudo tar xzf hadoop-1.0.3.tar.gz
+$ sudo mv hadoop-1.0.3 hadoop
+$ sudo chown -R hduser:hadoop hadoop

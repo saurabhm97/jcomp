@@ -1,0 +1,28 @@
+Configuring SSH(Secure Shell Protocol)
+user@ubuntu:~$ su - hduser
+hduser@ubuntu:~$ ssh-keygen -t rsa -P ""
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/hduser/.ssh/id_rsa):
+Created directory '/home/hduser/.ssh'.
+Your identification has been saved in /home/hduser/.ssh/id_rsa.
+Your public key has been saved in /home/hduser/.ssh/id_rsa.pub.
+The key fingerprint is:
+9b:82:ea:58:b4:e0:35:d7:ff:19:66:a6:ef:ae:0e:d2 hduser@ubuntu
+The key's randomart image is:
+[...snipp...]
+hduser@ubuntu:~$
+hduser@ubuntu:~$ cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+
+
+
+Starting your single-node cluster
+Run the command:
+hduser@ubuntu:~$ /usr/local/hadoop/bin/start-all.sh
+hduser@ubuntu:/usr/local/hadoop$ bin/start-all.sh
+starting namenode, logging to /usr/local/hadoop/bin/../logs/hadoop-hduser-namenode-ubuntu.out
+localhost: starting datanode, logging to /usr/local/hadoop/bin/../logs/hadoop-hduser-datanode-ubuntu.out
+localhost: starting secondarynamenode, logging to /usr/local/hadoop/bin/../logs/hadoop-hduser-secondarynamenode-ubuntu.out
+starting jobtracker, logging to /usr/local/hadoop/bin/../logs/hadoop-hduser-jobtracker-ubuntu.out
+localhost: starting tasktracker, logging to /usr/local/hadoop/bin/../logs/hadoop-hduser-tasktracker-ubuntu.out
+hduser@ubuntu:/usr/local/hadoop$
+
